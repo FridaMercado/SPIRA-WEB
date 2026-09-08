@@ -1,0 +1,278 @@
+/* ==========================================================================
+   🎨 ESTILOS EXCLUSIVOS PARA LA PÁGINA "NOSOTROS"
+   ========================================================================== */
+
+   .conocenos-main-container {
+    width: 100%;
+    padding-top: 90px; 
+    box-sizing: border-box;
+}
+
+/* ==========================================================================
+   🎬 HERO SECTION (VIDEO SIN RECORTES)
+   ========================================================================== */
+   .conocenos-main-container {
+    width: 100%;
+    padding-top: 90px; /* Respeta los 90px exactos que mide el navbar */
+    box-sizing: border-box;
+}
+
+.conocenos-hero {
+    position: relative;
+    width: 100%;
+    height: auto;
+    /* Forzamos el aspecto 16:9 nativo del video para que no mutile las curvas */
+    aspect-ratio: 16 / 9; 
+    max-height: calc(88vh - 90px); /* Evita que crezca más allá de la pantalla */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.video-bg {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    object-fit: cover; /* Al estar en un div 16:9, el cover encaja perfecto sin cortar nada */
+}
+
+.hero-overlay-dark {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65);
+    z-index: 2;
+}
+
+.hero-overlay-text {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    max-width: 800px;
+    padding: 0 20px;
+}
+
+/* --- GRID DIVIDIDO (TÍTULO IZQ, TEXTO DER) --- */
+.propuesta-valor-seccion {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 40px;
+}
+.bg-suave {
+    background: linear-gradient(90deg, rgba(40, 75, 89, 0.05), transparent);
+    border-radius: 20px;
+}
+.propuesta-grid {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 40px;
+    align-items: flex-start;
+}
+.propuesta-titulo h2 {
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    color: var(--color-texto-claro);
+    line-height: 1.1;
+    letter-spacing: 2px;
+}
+.texto-oliva { color: var(--color-verde-oliva); }
+.propuesta-texto p {
+    font-family: 'Questrial', sans-serif;
+    color: rgba(242, 242, 240, 0.85);
+    font-size: 1.15rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+/* --- LISTA DE PASOS INTERACTIVA CON ICONOS --- */
+.pasos-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.paso-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 25px;
+    background: rgba(255, 255, 255, 0.03);
+    border-left: 3px solid transparent;
+    border-radius: 8px;
+    opacity: 0.3; /* Inician apagados */
+    transform: scale(0.98);
+    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.paso-texto {
+    font-family: 'Questrial', sans-serif;
+    font-size: 1.2rem;
+    margin: 0;
+    color: var(--color-texto-claro);
+    transition: color 0.5s;
+}
+.paso-icono {
+    font-size: 1.5rem;
+    color: var(--color-texto-claro);
+    opacity: 0.5;
+    transition: all 0.5s;
+}
+
+/* ESTADO ACTIVO AL SCROLLEAR */
+.paso-item.activo {
+    opacity: 1;
+    transform: scale(1);
+    background: rgba(40, 75, 89, 0.2);
+    border-left-color: var(--color-acento-brillante);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+.paso-item.activo .paso-texto {
+    color: #ffffff;
+    font-weight: 700;
+}
+.paso-item.activo .paso-icono {
+    color: var(--color-acento-brillante);
+    opacity: 1;
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 10px rgba(63, 178, 191, 0.8));
+}
+   
+   /* ==========================================================================
+      --- MISIÓN, VISIÓN, VALORES (Sin fondo, Efecto Hover Gigante) ---
+      ========================================================================== */
+   .mvv-card {
+       text-align: center;
+       padding: 40px 30px;
+       background: transparent; /* Totalmente transparente por defecto */
+       border: 1px solid transparent; /* Sin bordes */
+       border-radius: 15px;
+       transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+   }
+   
+   /* Efecto al pasar el mouse: Se ilumina, le sale borde y crece */
+   .mvv-card:hover {
+       transform: scale(1.08) translateY(-10px);
+       background: rgba(40, 75, 89, 0.15); /* Fondo azulado suave */
+       border-color: var(--color-acento-brillante);
+       box-shadow: 0 15px 35px rgba(63, 178, 191, 0.2);
+   }
+   
+   .mvv-titulo {
+       color: var(--color-verde-oliva);
+       font-size: 1.8rem;
+       margin-bottom: 20px;
+       letter-spacing: 2px;
+       animation: resplandorMVV 3s infinite alternate;
+   }
+   
+   @keyframes resplandorMVV {
+       0% { text-shadow: 0 0 5px rgba(192, 217, 156, 0.2); }
+       100% { text-shadow: 0 0 15px rgba(192, 217, 156, 0.6); }
+   }
+   
+   .mvv-card p {
+       font-family: 'Questrial', sans-serif;
+       color: rgba(242, 242, 240, 0.8);
+       font-size: 1.05rem;
+       line-height: 1.6;
+   }
+
+/* ==========================================================================
+   🎨 NUEVOS ESTILOS PARA LOS PASOS (CON NÚMEROS Y LENTOS)
+   ========================================================================== */
+.pasos-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.paso-item {
+    display: flex;
+    align-items: center;
+    padding: 20px 25px;
+    background: rgba(255, 255, 255, 0.03);
+    border-left: 3px solid transparent;
+    border-radius: 8px;
+    opacity: 0.3; 
+    transform: scale(0.98);
+    /* 🐢 ANIMACIÓN MÁS LENTA: 0.8s en lugar de 0.5s */
+    transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    gap: 20px; /* Separación entre número, texto e icono */
+}
+
+/* Estilo para los números transparentes con contorno */
+.paso-numero {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
+    transition: all 0.8s ease;
+    width: 45px;
+}
+
+.paso-contenido {
+    flex: 1; /* Empuja el icono a la derecha */
+}
+
+.paso-texto {
+    font-family: 'Questrial', sans-serif;
+    font-size: 1.2rem;
+    margin: 0;
+    color: var(--color-texto-claro);
+    transition: color 0.8s;
+}
+
+.paso-icono {
+    font-size: 1.5rem;
+    color: var(--color-texto-claro);
+    opacity: 0.5;
+    transition: all 0.8s;
+}
+
+/* --- ESTADO ACTIVO AL SCROLLEAR --- */
+.paso-item.activo {
+    opacity: 1;
+    transform: scale(1);
+    background: rgba(40, 75, 89, 0.2);
+    border-left-color: var(--color-acento-brillante);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.paso-item.activo .paso-numero {
+    color: var(--color-acento-brillante); /* El número se pinta de turquesa */
+    -webkit-text-stroke: 0;
+    text-shadow: 0 0 10px rgba(63, 178, 191, 0.5);
+}
+
+.paso-item.activo .paso-texto {
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.paso-item.activo .paso-icono {
+    color: var(--color-acento-brillante);
+    opacity: 1;
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 10px rgba(63, 178, 191, 0.8));
+}
+
+/* --- RESPONSIVO MÓVIL --- */
+@media (max-width: 768px) {
+    .propuesta-grid { grid-template-columns: 1fr; gap: 20px; }
+    .propuesta-titulo h2 { font-size: 2.5rem; text-align: center; margin-bottom: 10px; }
+    .propuesta-texto p { text-align: center; }
+    .paso-texto { font-size: 1rem; }
+    .paso-icono { font-size: 1.2rem; }
+}
+
+.logo-estatico {
+    width: 160px !important;
+    height: 60px !important;
+    display: flex !important;
+    align-items: center !important;
+    z-index: 101;
+    cursor: pointer;
+}
+.logo-estatico img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    object-position: left center !important;
+}

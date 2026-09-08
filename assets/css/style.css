@@ -1,0 +1,993 @@
+/* ==========================================================================
+   📌 1. DECLARACIÓN DE VARIABLES (PALETA DE COLORES OFICIAL SPIRA)
+   ========================================================================== */
+:root {
+    --color-primario-oscuro: #284B59; 
+    --color-acento-medio:    #1497A6; 
+    --color-acento-brillante: #3FB2BF; 
+    --color-texto-claro:     #F2F2F0; 
+    --color-verde-oliva:     #C0D99C; 
+    
+    /* 🟢 ACTUALIZADO: Cambiamos el color plano por tu nuevo degradado de gala */
+    --bg-premium-gradient: linear-gradient(to bottom, #1A4050 0%, #000000 100%);
+    
+    --bg-sheet: rgba(9, 14, 18, 0.75); 
+}
+/* ==========================================================================
+   📌 2. RESET, ESTILOS BASE Y CONFIGURACIÓN TIPOGRÁFICA
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* Todo el cuerpo de texto general usa la fuente Questrial */
+    font-family: 'Questrial', 'Segoe UI', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, span {
+    /* Todos los títulos del sitio usan la fuente Montserrat */
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #000000;
+    color: var(--color-texto-claro);
+    overflow-x: hidden;
+    overflow-y: hidden !important; 
+    height: 100vh !important;
+}
+
+body.permitir-scroll {
+    overflow-y: auto !important;
+    height: auto !important;
+} 
+
+/* ==========================================================================
+   🛠️ COMPENSACIÓN DEL NAVBAR 
+   ========================================================================== */
+/* Empuja el contenido para que el Navbar flotante no lo tape */
+.content-spacer {
+    padding-top: 90px; 
+    width: 100%;
+}
+
+/* ==========================================================================
+   🏛️ 3. BARRA DE MENÚ SUPERIOR (NAVBAR)
+   ========================================================================== */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 90px;
+    background: var(--bg-premium-gradient);
+    color: var(--color-texto-claro);
+    z-index: 100;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+ /*    border-bottom: 1px solid rgba(63, 178, 191, 0.25);  */
+}
+
+.nav-container {
+    max-width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    position: relative;
+}
+
+.nav-menu {
+    margin-left: auto; 
+    transition: margin-left 0.5s ease;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-links a {
+    font-family: 'Questrial', sans-serif; 
+    color: var(--color-texto-claro); 
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.5px; 
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-links a:hover {
+    color: var(--color-acento-brillante);
+}
+/* ==========================================================================
+   🍔 BOTÓN HAMBURGUESA ORIGINAL Y MENÚ MÓVIL
+   ========================================================================== */
+   .hamburger-menu {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 3001; /* Siempre visible por encima del menú */
+}
+
+.hamburger-menu span {
+    width: 100%;
+    height: 3px;
+    background-color: var(--color-texto-claro);
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Animación de la X */
+.hamburger-menu.open span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+.hamburger-menu.open span:nth-child(2) { opacity: 0; }
+.hamburger-menu.open span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+
+@media (max-width: 991px) {
+    /* 1. Mostramos la hamburguesa */
+    .hamburger-menu { 
+        display: flex; 
+    }
+    
+    /* 2. Ocultamos los enlaces y los preparamos como cortina */
+    .nav-menu {
+        position: absolute;
+        top: 90px; /* Debajo de la barra */
+        left: 0;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.98);
+        border-bottom: 1px solid rgba(63, 178, 191, 0.3);
+        padding: 0;
+        max-height: 0; /* Inicia cerrado */
+        overflow: hidden;
+        transition: max-height 0.4s ease-in-out;
+    }
+
+    /* 3. Cuando el JS le pone la clase "active", la cortina baja */
+    .nav-menu.active {
+        max-height: 400px;
+        padding: 30px 0;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+    }
+    .nav-links a { font-size: 1.2rem; }
+}
+
+
+/* ==========================================================================
+   🎯 5. LOGO INTERACTIVO SPIRA (700X700 CENTRADO)
+   ========================================================================== */
+.logo-wrapper {
+    position: fixed;
+    z-index: 101;
+    
+    /* ESTADO FINAL (NAVBAR): Tamaño para la barra superior */
+    top: 15px;          
+    left: 30px;         
+    width: 240px;        
+    height: 60px;  
+    transform: scale(1.5) rotate(360deg);
+    transform-origin: left center; 
+    cursor: pointer;
+    
+    transition: top 1.8s cubic-bezier(0.25, 1, 0.5, 1), 
+                left 1.8s cubic-bezier(0.25, 1, 0.5, 1), 
+                width 1.8s cubic-bezier(0.25, 1, 0.5, 1), 
+                height 1.8s cubic-bezier(0.25, 1, 0.5, 1), 
+                transform 1.8s cubic-bezier(0.25, 1, 0.5, 1);
+
+}
+
+.logo-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    cursor: pointer !important;
+}
+
+/* ESTADO INICIAL (CARGA): Cuadrado gigante centrado con animación de contorno */
+.logo-wrapper.large-hero {
+    top: 45%;           
+    left: 50%;          
+    transform: translate(-50%, -50%) scale(1) rotate(0deg); 
+    
+    width: 700px;       
+    height: 700px;
+    max-width: 85vw;    
+    max-height: 85vw;   
+    
+    animation: pulsoSpira 2.5s infinite ease-in-out;
+}
+
+.logo-wrapper.large-hero:hover {
+    transform: translate(-50%, -50%) scale(1.02) rotate(0deg);
+    transition: transform 0.3s ease;
+}
+
+/* 🟢 ANIMACIÓN DE CONTORNO OPTIMIZADA CON LOS TURQUESAS DE TU PALETA */
+@keyframes pulsoSpira {
+    0% {
+        transform: translate(-50%, -50%) scale(1) rotate(0deg);
+        box-shadow: none !important;
+        filter: drop-shadow(0 0 8px rgba(63, 178, 191, 0.35));
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.03) rotate(0deg);
+        box-shadow: none !important;
+        /* Doble capa de resplandor usando tu turquesa brillante (#3FB2BF) */
+        filter: drop-shadow(0 0 22px rgba(63, 178, 191, 0.8)) 
+                drop-shadow(0 0 45px rgba(20, 151, 166, 0.4));
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1) rotate(0deg);
+        box-shadow: none !important;
+        filter: drop-shadow(0 0 8px rgba(63, 178, 191, 0.35));
+    }
+}
+
+/* ==========================================================================
+   🌑 6. CORTINA OSCURA INICIAL (HERO SECTION) - CONTRASTE MÁXIMO
+   ========================================================================== */
+.hero-section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+    padding: 0 20px;
+    position: relative; 
+    background: linear-gradient(135deg, #090e12, #05080b); 
+    color: var(--color-texto-claro);
+    
+    transition: height 1.8s cubic-bezier(0.25, 1, 0.5, 1), opacity 1s ease-in-out;
+    opacity: 1;
+    z-index: 5;
+}
+
+.hero-section.collapsed {
+    height: 0px;
+    opacity: 0;
+    padding: 0;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 6;
+    transition: transform 1.2s ease-in-out;
+    margin-top: 390px; 
+}
+
+.hero-content h1 {
+    font-size: 2.3rem;
+    margin-bottom: 15px;
+    color: var(--color-texto-claro);
+}
+
+.hero-content p {
+    color: var(--color-verde-oliva); /* Toque oliva sutil para el subtítulo */
+    font-size: 1.1rem;
+}
+
+.hero-section.collapsed .hero-content {
+    transform: translateY(-100px);
+}
+
+
+
+/* ==========================================================================
+   🟢 7. BOTÓN FLOTANTE DE WHATSAPP
+   ========================================================================== */
+.whatsapp-btn {
+    position: fixed !important;
+    opacity: 1!important;
+    pointer-events: auto !important;
+    bottom: 30px !important;
+    right: 30px !important;
+    width: 60px;
+    height: 60px;
+    background-color: #25d366;
+    color: white;
+    border-radius: 50%;
+    display: flex!important;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+    z-index: 9999 !important; /* Inmortal, por encima de TODO */ 
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    text-decoration: none;
+}
+
+.whatsapp-btn:hover { background-color: #20ba5a; transform: scale(1.1); }
+
+
+/* ==========================================================================
+   📱 10. RESPONSIVOS MÓVILES (ADAPTACIÓN DE CAPAS)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .hamburger-menu {
+        display: flex;
+        position: absolute;
+        right: 20px; 
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%; 
+        width: 75%;   
+        height: 100vh;
+        background-color: var(--bg-navbar); 
+        margin-left: 0;
+        padding-top: 110px;
+        padding-left: 40px;
+        transition: right 0.4s ease-in-out;
+        z-index: 108; 
+        border-left: 1px solid rgba(63, 178, 191, 0.25);
+    }
+
+    .nav-menu.active { right: 0; }
+    .nav-links { flex-direction: column; gap: 25px; }
+
+    .logo-wrapper.large-hero { 
+        top: 40% !important; 
+    }
+    
+    .logo-wrapper { 
+        top: 18px; 
+        left: 15px; 
+        width: 110px; 
+        height: 35px; 
+    }
+
+    .navbar {
+        height: 70px; 
+    }
+
+    .hero-content {
+        margin-top: 140px;
+    }
+
+    .hero-content h1 { font-size: 1.7rem; }
+
+    .bottom-sheet {
+        width: 100%;
+        max-width: 100%;
+        border-radius: 16px 16px 0 0;
+    }
+
+    .bottom-sheet.open { max-height: 60vh; }
+    .opciones-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .btn-evento { padding: 10px 8px; font-size: 0.85rem; text-align: center; white-space: normal; }
+
+    .whatsapp-btn {
+        bottom: 20px !important;
+        right: 20px !important;
+        width: 50px !important;
+        height: 50px !important;
+    }
+    .whatsapp-btn svg { width: 24px; height: 24px; }
+}
+
+/* ==========================================================================
+   🟢 11. BOTÓN FLOTANTE DE WHATSAPP REPARADO (UBICACIÓN DINÁMICA)
+   ========================================================================== */
+.whatsapp-btn {
+    position: fixed;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background-color: #25d366; /* Tu verde WhatsApp original */
+    color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    z-index: 105; 
+    transition: transform 0.3s ease, background-color 0.3s ease, bottom 0.5s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s ease;
+    text-decoration: none;
+    opacity: 0;
+    pointer-events: none; /* Apagado por defecto hasta que JS le ponga la clase */
+}
+
+/* 🎯 ESTADO EN PANTALLA INICIAL: Flota exactamente a 115px del suelo 
+   (90px de la altura del footer + 25px de colchón de separación) */
+.whatsapp-btn.visible-inicio {
+    opacity: 1;
+    pointer-events: auto;
+    bottom: 115px; 
+}
+
+/* 🎯 ESTADO EN PÁGINAS SECUNDARIAS (Conócenos / Contacto): 
+   Vuelve a su esquina inferior clásica de 30px porque ahí el footer es estático */
+.whatsapp-btn.estatico-pagina {
+    opacity: 1;
+    pointer-events: auto;
+    bottom: 30px;
+}
+
+.whatsapp-btn:hover { 
+    background-color: #20ba5a; 
+    transform: scale(1.1); 
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.35);
+}
+
+/* Ajuste para celulares */
+@media (max-width: 768px) {
+    .whatsapp-btn.visible-inicio {
+        /* En móviles el footer mide menos pero el menú de ambientes estorba, 
+           lo subimos a 145px para que libre la botonera inferior perfectamente */
+        bottom: 145px; 
+        right: 20px;
+        width: 54px;
+        height: 54px;
+    }
+}
+
+
+/* ==========================================================================
+   📱 ADAPTACIÓN RESPONSIVA EN MÓVILES (FOOTER OPTIMIZADO)
+   ========================================================================= */
+@media (max-width: 768px) {
+    .whatsapp-btn.visible-inicio {
+        bottom: 145px; 
+        right: 20px;
+        width: 54px;
+        height: 54px;
+    }
+}
+
+/* ==========================================================================
+   📌 BLOQUE MIGRADO INDEX (BANNER, CARRUSEL, ESFERAS)
+   ========================================================================== */
+.seccion-servicios {
+    margin-top: 20px !important; 
+    padding-top: 20px;
+}
+
+/* ==========================================================================
+   📌 HOMOLOGACIÓN DE TÍTULOS (ESTILO "NOSOTROS")
+   ========================================================================== */
+   .titulo-seccion {
+    font-size: clamp(1.5rem, 4vw, 2.5rem) !important; /* Tamaño gigante adaptativo */
+    color: var(--color-texto-claro) !important;
+    line-height: 1.1;
+    text-align: center !important;
+    text-transform: uppercase !important;
+    width: 100%;
+    margin-bottom: 70px !important;
+    letter-spacing: 2px;
+}
+
+/* Color de acento para usar en cualquier título */
+.texto-oliva {
+    color: var(--color-verde-oliva) !important; 
+}
+
+/* --- BANNER PRINCIPAL --- */
+.spira-banner {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    background-color: #000000;
+}
+
+/* Ajuste para tablet y móvil */
+@media (max-width: 768px) {
+    .spira-banner { 
+        height: 120px; /* 👈 Altura reducida en móvil (antes era 280px) */
+    }
+    .spira-banner-band { 
+        padding: 20px 20px; /* Reducimos un poco el colchón interno para que no asfixie el texto */
+    }
+}
+
+.spira-banner-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    z-index: 1;
+}
+.spira-banner-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.38);
+    z-index: 2;
+    pointer-events: none;
+}
+.spira-banner-band {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    transform: translateY(-50%);
+    background-color: rgba(40, 75, 89, 0.72);
+    padding: 15px 0; /* 👈 Banda súper delgada */
+    text-align: center;
+    z-index: 3;
+}
+
+.spira-banner-band h1 {
+    font-family: 'Montserrat', sans-serif !important;
+    font-weight: 300 !important;
+    letter-spacing: 0.15em;
+    color: var(--color-texto-claro);
+    font-size: clamp(1.4rem, 2.5vw, 1.8rem); /* 👈 Texto más chico, similar a títulos */
+    margin: 0;
+}
+@media (max-width: 768px) {
+    .spira-banner { height: 280px; }
+    .spira-banner-band { padding: 30px 20px; }
+}
+
+/* --- CARRUSEL SWIPER --- */
+.carousel-link { display: block; width: 100%; height: 100%; color: inherit; text-decoration: none; }
+.spiraSwiper { width: 100%; padding-top: 30px; padding-bottom: 50px; }
+.swiper-slide {
+    width: 55% !important;
+    transition: transform 0.6s ease, opacity 0.6s ease, filter 0.6s ease !important;
+    opacity: 0.3; transform: scale(0.65);
+    display: flex; flex-direction: column; align-items: center; filter: blur(2px);
+}
+@media (min-width: 992px) { .swiper-slide { width: 55% !important; } }
+.swiper-slide-active {
+    opacity: 1 !important; transform: scale(1) !important; filter: blur(0px); z-index: 10;
+}
+.swiper-slide-active .slide-title {
+    font-size: 1.5rem !important; font-weight: 500 !important; opacity: 1 !important;
+    margin-bottom: 30px; letter-spacing: 3px; color: var(--color-texto-claro);
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+/* --- CARRUSEL SWIPER --- */
+.swiper-slide img {
+    width: 100%; 
+    height: 300px; /* 👈 Imagen mucho más corta (antes 450px) para que quepa el título */
+    object-fit: cover; 
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+@media (max-width: 768px) {
+    .swiper-slide img { height: 250px; } /* Ajuste en celular */
+}
+.slide-title {
+    color: var(--color-texto-claro); text-transform: uppercase; font-weight: 300;
+    margin-bottom: 10px; font-size: 0.8rem; letter-spacing: 1px; transition: all 0.5s ease; opacity: 0.4;
+}
+.custom-swiper-btn { top: 65% !important; }
+.custom-swiper-btn:hover { background-color: rgba(140, 122, 114, 1); }
+.custom-swiper-btn::after { font-size: 1.2rem !important; font-weight: bold; }
+.swiper-button-prev { left: 18% !important; }
+.swiper-button-next { right: 18% !important; }
+.swiper-pagination-bullet { background-color: var(--color-texto-claro); opacity: 0.5; width: 10px; height: 10px; }
+.swiper-pagination-bullet-active { background-color: var(--color-acento-brillante); opacity: 1; }
+
+@media (max-width: 991px) {
+    .swiper-slide { width: 100% !important; opacity: 1; transform: scale(1); filter: blur(0px); }
+    .swiper-button-prev { left: 10px !important; }
+    .swiper-button-next { right: 10px !important; }
+    .custom-swiper-btn { width: 35px !important; height: 35px !important; }
+    .custom-swiper-btn::after { font-size: 1rem !important; }
+    .slide-title { display: block !important; opacity: 0.85; font-size: 0.9rem; margin-bottom: 14px; }
+    .swiper-slide-active .slide-title { opacity: 1 !important; font-size: 1.35rem !important; font-weight: 700 !important; color: #ffffff; text-shadow: 0 0 12px rgba(255, 255, 255, 0.35); }
+}
+@media (max-width: 768px) {
+    .swiper-slide img { height: 320px; }
+}
+
+/* ==========================================================================
+   🌌 SECCIÓN PROPUESTA DE VALOR (LISTA SECUENCIAL Y NEBULOSAS)
+   ========================================================================== */
+   .proposal-section-full {
+    width: 100%; 
+    background-color: #000000; 
+    padding: 100px 0 250px; /* 👈 Padding gigante abajo para evitar que el footer lo tape */
+    margin: 40px 0 0; 
+    position: relative;
+    overflow: hidden;
+}
+
+.value-list-container {
+    display: flex;
+    flex-direction: column;
+    gap: 80px; /* Separación amplia entre cada punto */
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Estilo inactivo (apagado por defecto) */
+.value-list-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+    opacity: 0.3; /* Inicia atenuado */
+    transform: scale(0.95);
+    transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.sphere-wrapper {
+    flex: 0 0 150px; /* Tamaño fijo para la nebulosa */
+    display: flex;
+    justify-content: center;
+}
+
+.value-text {
+    flex: 1;
+    max-width: 550px;
+    text-align: left;
+}
+
+/* Textos mucho más grandes y legibles */
+.value-text h4 {
+    font-size: clamp(1.4rem, 3vw, 1.8rem); 
+    margin-bottom: 15px;
+    color: var(--color-texto-claro);
+    transition: all 0.5s ease;
+}
+
+.value-text p {
+    font-size: clamp(1.1rem, 2vw, 1.3rem); /* Tamaño idéntico al de la página "Nosotros" */
+    color: rgba(242, 242, 240, 0.6); 
+    line-height: 1.6;
+    margin: 0;
+    transition: all 0.5s ease;
+}
+
+/* --- ESTADO ACTIVO (Al hacer Scroll o Hover) --- */
+.value-list-item.activo,
+.value-list-item:hover {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.value-list-item.activo .subtitulo-seccion,
+.value-list-item:hover .subtitulo-seccion {
+    color: var(--color-acento-brillante);
+    text-shadow: 0 0 15px rgba(63, 178, 191, 0.4);
+}
+
+.value-list-item.activo p,
+.value-list-item:hover p {
+    color: #ffffff; /* El texto se ilumina a blanco puro */
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+}
+
+/* --- ADAPTACIÓN MÓVIL --- */
+@media (max-width: 768px) {
+    .value-list-item {
+        flex-direction: column; /* La esfera arriba, el texto abajo en celular */
+        gap: 25px;
+        text-align: center;
+    }
+    .value-text {
+        text-align: center;
+    }
+}
+
+/* ==========================================================================
+   🌌 ESFERA NEBULOSA DE ENERGÍA (VERSIÓN "NEURONA HIPERACTIVA")
+   ========================================================================== */
+   .css-nebula-sphere {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 50% 50%, rgba(20, 151, 166, 0.15), transparent 75%);
+    box-shadow: 0 0 35px rgba(63, 178, 191, 0.3), inset 0 0 45px rgba(40, 75, 89, 0.7);
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.nebula-core {
+    position: absolute;
+    inset: 25px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 40% 40%, rgba(192, 217, 156, 0.4), transparent);
+    filter: blur(6px);
+    animation: pulseCore 3s ease-in-out infinite alternate;
+}
+
+/* Base compartida para las 7 líneas */
+.nebula-line-1, .nebula-line-2, .nebula-line-3, 
+.nebula-line-4, .nebula-line-5, .nebula-line-6, .nebula-line-7 {
+    position: absolute;
+    border-radius: 50%;
+    border: 2px solid transparent;
+}
+
+/* 1. Cyan brillante principal */
+.nebula-line-1 {
+    inset: -2px;
+    border-top-color: var(--color-acento-brillante);
+    border-left-color: rgba(63, 178, 191, 0.3);
+    animation: spinNebula1 3s linear infinite;
+    filter: drop-shadow(0 0 8px var(--color-acento-brillante));
+}
+
+/* 2. Verde Oliva diagonal */
+.nebula-line-2 {
+    inset: -2px;
+    border-bottom-color: var(--color-verde-oliva);
+    border-right-color: rgba(192, 217, 156, 0.2);
+    animation: spinNebula2 4.5s linear infinite;
+    filter: drop-shadow(0 0 5px var(--color-verde-oliva));
+}
+
+/* 3. Anillo blanco de contención */
+.nebula-line-3 {
+    inset: -2px;
+    border-top-color: #ffffff;
+    animation: spinNebula3 6s linear infinite;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.6));
+}
+
+/* 4. [NUEVO] Anillo interior rápido y errático */
+.nebula-line-4 {
+    inset: 4px; /* Más profundo */
+    border-left-color: var(--color-acento-brillante);
+    border-bottom-color: rgba(63, 178, 191, 0.5);
+    animation: spinNebula4 2s linear infinite reverse;
+    filter: drop-shadow(0 0 6px var(--color-acento-brillante));
+}
+
+/* 5. [NUEVO] Conexión sináptica punteada (Dashed) */
+.nebula-line-5 {
+    inset: 8px; /* Aún más profundo */
+    border: 2px dashed var(--color-verde-oliva); /* Efecto de chispas/puntos */
+    border-top-color: transparent;
+    border-bottom-color: transparent;
+    animation: spinNebula5 7s linear infinite;
+    opacity: 0.8;
+}
+
+/* 6. [NUEVO] Haz de luz blanco cruzado */
+.nebula-line-6 {
+    inset: 0px;
+    border-right-color: #ffffff;
+    animation: spinNebula6 3.5s linear infinite;
+    filter: drop-shadow(0 0 8px #ffffff);
+}
+
+/* 7. [NUEVO] Destello envolvente muy exterior */
+.nebula-line-7 {
+    inset: -5px; /* Ligeramente por fuera de la esfera */
+    border-bottom-color: var(--color-acento-brillante);
+    animation: spinNebula7 5s linear infinite;
+    opacity: 0.6;
+    filter: blur(1px); /* Le da un toque etéreo */
+}
+
+/* --- TRAYECTORIAS MATEMÁTICAS 3D --- */
+@keyframes pulseCore {
+    0% { transform: scale(0.85); opacity: 0.5; }
+    100% { transform: scale(1.15); opacity: 1; filter: blur(10px); }
+}
+@keyframes spinNebula1 {
+    0% { transform: rotateX(35deg) rotateY(45deg) rotateZ(0deg); }
+    100% { transform: rotateX(35deg) rotateY(45deg) rotateZ(360deg); }
+}
+@keyframes spinNebula2 {
+    0% { transform: rotateX(65deg) rotateY(-30deg) rotateZ(0deg); }
+    100% { transform: rotateX(65deg) rotateY(-30deg) rotateZ(-360deg); }
+}
+@keyframes spinNebula3 {
+    0% { transform: rotateX(-45deg) rotateY(60deg) rotateZ(0deg); }
+    100% { transform: rotateX(-45deg) rotateY(60deg) rotateZ(360deg); }
+}
+@keyframes spinNebula4 {
+    0% { transform: rotateX(15deg) rotateY(80deg) rotateZ(0deg); }
+    100% { transform: rotateX(15deg) rotateY(80deg) rotateZ(360deg); }
+}
+@keyframes spinNebula5 {
+    0% { transform: rotateX(80deg) rotateY(15deg) rotateZ(0deg); }
+    100% { transform: rotateX(80deg) rotateY(15deg) rotateZ(360deg); }
+}
+@keyframes spinNebula6 {
+    0% { transform: rotateX(55deg) rotateY(-55deg) rotateZ(0deg); }
+    100% { transform: rotateX(55deg) rotateY(-55deg) rotateZ(360deg); }
+}
+@keyframes spinNebula7 {
+    0% { transform: rotateX(-20deg) rotateY(-70deg) rotateZ(0deg); }
+    100% { transform: rotateX(-20deg) rotateY(-70deg) rotateZ(360deg); }
+}
+
+/* ==========================================================================
+   📌 ALINEACIÓN, ANIMACIONES Y WIDGET DE WHATSAPP
+   ========================================================================== */
+
+/* 1. Forzar Centrado en Títulos Migrados */
+.titulo-seccion {
+    color: var(--color-acento-brillante);
+    text-align: center !important;
+    width: 100%;
+}
+.swiper-slide { text-align: center; } /* Centra contenido del carrusel */
+.slide-title { text-align: center !important; width: 100%; }
+
+/* 2. Animación de texto "Extraordinario" */
+.vibrar-texto {
+    display: inline-block;
+    color: var(--color-verde-oliva);
+    font-weight: 700;
+    letter-spacing: 2px; /* Añade espacio entre las propias letras de la palabra */
+    animation: resplandorMagico 2.5s infinite ease-in-out;
+}
+
+@keyframes resplandorMagico {
+    0%, 100% { transform: scale(1); color: #ffffff; }
+    /* Escala al 1.05 en lugar de 1.1 para evitar colisiones con otras letras */
+    50% { transform: scale(1.05); color: var(--color-verde-oliva); text-shadow: 0 0 15px rgba(63, 178, 191, 0.8); }
+}
+
+/* ==========================================================================
+   🎯 TEXTOS DE LLAMADO A LA ACCIÓN Y ANIMACIONES
+   ========================================================================== */
+
+/* Párrafo elegante para separar secciones y llamar a la acción */
+.texto-llamado-accion {
+    font-family: var(--font-title);
+    font-size: clamp(1rem, 2vw, 1.2rem); /* Tamaño mediano, más grande que un párrafo normal pero menor a un título */
+    color: var(--color-texto-claro);
+    text-align: center;
+    width: 100%;
+    letter-spacing: 1px;
+}
+
+/* Animación de saltitos hacia arriba para el "Haz clic" */
+.animacion-salto {
+    display: inline-block;
+    color: var(--color-acento-brillante); /* Tu azul/cyan del Proyecto 2 */
+    font-weight: 700;
+    text-transform: uppercase;
+    animation: saltitos 2.5s infinite;
+}
+
+@keyframes saltitos {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); } /* Salto alto */
+    60% { transform: translateY(-5px); }  /* Salto pequeñito de rebote */
+}
+
+/* 3. Animación de "Pulso" para el botón de WhatsApp */
+.btn-vibrante {
+    animation: pulsoWhatsApp 2s infinite;
+}
+@keyframes pulsoWhatsApp {
+    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+/* 4. Estilos del Widget de WhatsApp migrado */
+.whatsapp-widget {
+    position: fixed;
+    bottom: 185px; 
+    right: 30px;
+    width: 300px;
+    background-color: #f0f2f5;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+    z-index: 1000;
+    display: none; 
+    flex-direction: column;
+    font-family: 'Montserrat', sans-serif;
+}
+.wa-header { background-color: #007E5C; color: #ffffff; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; border-top-left-radius: 15px; border-top-right-radius: 15px; font-weight: 600; font-size: 0.95rem; }
+.wa-header-left { display: flex; align-items: center; gap: 12px; }
+.wa-icon { width: 25px; height: 25px; background-color: #ffffff; border-radius: 50%; }
+
+/* Botón de cierre: Usamos fuente nativa gigante para que NUNCA desaparezca */
+.wa-close { background: none; border: none; color: #ffffff; font-size: 2rem; cursor: pointer; padding: 0; line-height: 0.5; }
+.wa-close:hover { color: #d1d1d1; }
+
+.wa-body { padding: 20px; display: flex; flex-direction: column; gap: 15px; }
+.wa-message { background-color: #ffffff; padding: 15px; border-radius: 0 15px 15px 15px; color: #333333; font-size: 0.85rem; line-height: 1.5; position: relative; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+.wa-message::before { content: ""; position: absolute; top: 0; left: -10px; border-width: 0 10px 12px 0; border-style: solid; border-color: transparent #ffffff transparent transparent; }
+.wa-btn { background-color: #25D467; color: #ffffff !important; text-align: center; padding: 12px; border-radius: 25px; text-decoration: none; font-weight: 700; font-size: 0.95rem; display: flex; justify-content: center; align-items: center; gap: 8px; transition: transform 0.3s ease; margin-top: 5px; }
+.wa-btn:hover { transform: scale(1.03); }
+
+@media (max-width: 768px) {
+    .whatsapp-widget { bottom: 210px; right: 20px; }
+}
+
+
+/* ==========================================================================
+   📌 ENLACE ACTIVO, GLOW EN CARRUSEL Y AJUSTES
+   ========================================================================== */
+
+/* 1. Resaltar enlace activo en el Navbar */
+.nav-links a.active {
+    color: var(--color-acento-brillante);
+}
+.nav-links a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-acento-brillante);
+    border-radius: 2px;
+}
+
+/* 2. Efecto Iluminación "Tarjeta Cyber" en el Carrusel */
+.swiper-slide img {
+    border: 2px solid transparent; 
+    transition: all 0.4s ease;
+}
+/* Solo se ilumina la tarjeta cuando pasas el mouse por encima */
+.swiper-slide:hover img {
+    border-color: var(--color-acento-brillante);
+    box-shadow: 0 0 25px rgba(63, 178, 191, 0.6);
+    transform: translateY(-5px); /* Se levanta un poquito */
+}
+
+/* 3. Cursor especial de escritura para el eslogan animado */
+.char-eslogan {
+    display: inline-block;
+}
+.cursor-typing {
+    display: inline-block;
+    width: 3px;
+    height: 1em;
+    background-color: var(--color-acento-brillante);
+    margin-left: 5px;
+    vertical-align: text-bottom;
+    animation: parpadeo 0.8s infinite;
+    opacity: 0; /* Inicia oculto */
+}
+@keyframes parpadeo {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* ==========================================================================
+   📌 LOGO ESTÁTICO (SECUNDARIAS) Y OCULTAMIENTO INICIAL (INDEX)
+   ========================================================================== */
+   .logo-estatico {
+    width: 170px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    z-index: 101;
+}
+
+.logo-estatico img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Oculta los enlaces suavemente durante la animación inicial del index */
+.invisible-inicio {
+    opacity: 0 !important;
+    pointer-events: none !important;
+    transition: opacity 1s ease-in-out;
+}

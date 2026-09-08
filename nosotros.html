@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosotros - SPIRA Events</title>
+    
+    <!-- Fuentes y Librerías -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Questrial&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Estilos -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/footer.css">
+    <link rel="stylesheet" href="./assets/css/style_nosotros.css">
+</head>
+<body class="permitir-scroll">
+
+<!-- BARRA SUPERIOR (INMUNE A BOOTSTRAP) -->
+<nav class="spira-master-nav">
+    <div class="nav-container">
+        <div class="logo-estatico" onclick="window.location.href='index.html'">
+            <img src="./assets/img/Logo-SPIRA_blanco.png" alt="SPIRA Logo">
+        </div>
+        
+        <div id="nav-menu" class="nav-menu">
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="nosotros.html" class="active">Nosotros</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </div>
+
+        <button id="hamburger-btn" class="hamburger-menu" aria-label="Abrir menú">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
+
+    <main class="conocenos-main-container pb-5">
+        
+        <!-- HERO SECTION -->
+        <section class="conocenos-hero">
+            <video class="video-bg" autoplay loop muted playsinline>
+                <source src="assets/video/logo_intro_loop.mp4" type="video/mp4">
+            </video>
+            <div class="hero-overlay-dark"></div>
+            <div class="hero-overlay-text">
+                <h1 class="text-uppercase text-white">¿POR QUÉ <span style="color: var(--color-acento-brillante);">SPIRA EVENTS</span>?</h1>
+                <p class="mt-4">Porque no hacemos eventos, creamos emociones memorables. Somos el aliado que convierte tu visión en una experiencia inolvidable para tus invitados, clientes o equipo.</p>
+            </div>
+        </section>
+
+        <!-- ASÍ SOMOS -->
+        <section class="propuesta-valor-seccion mt-5">
+            <div class="propuesta-grid">
+                <div class="propuesta-titulo">
+                    <h2 class="text-uppercase">Así<br><span class="texto-oliva">Somos</span></h2>
+                </div>
+                <div class="propuesta-texto">
+                    <p>Especialistas en transformar visiones en realidades tangibles. Creamos experiencias inmersivas que conectan con los sentidos y despiertan emociones, alineándonos con la esencia de cada cliente.</p>
+                    <p>Entendemos que cada proyecto es único; por eso, diseñamos, producimos y ejecutamos eventos memorables que potencian el impacto de tu marca.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Y ASÍ TRABAJAMOS (Estructura con Números y Iconos) -->
+        <section class="propuesta-valor-seccion bg-suave mt-5">
+            <div class="propuesta-grid align-items-center">
+                <div class="propuesta-titulo">
+                    <h2 class="text-uppercase">Y Así<br><span class="texto-oliva">Trabajamos</span></h2>
+                </div>
+                
+                <div class="pasos-container">
+                    <!-- PASO 1 -->
+                    <div class="paso-item">
+                        <div class="paso-numero">01</div>
+                        <div class="paso-contenido"><h4 class="paso-texto">Briefing y descubrimiento</h4></div>
+                        <div class="paso-icono"><i class="fas fa-search"></i></div>
+                    </div>
+                    <!-- PASO 2 -->
+                    <div class="paso-item">
+                        <div class="paso-numero">02</div>
+                        <div class="paso-contenido"><h4 class="paso-texto">Diseño conceptual creativo</h4></div>
+                        <div class="paso-icono"><i class="fas fa-lightbulb"></i></div>
+                    </div>
+                    <!-- PASO 3 -->
+                    <div class="paso-item">
+                        <div class="paso-numero">03</div>
+                        <div class="paso-contenido"><h4 class="paso-texto">Producción técnica y sensorial</h4></div>
+                        <div class="paso-icono"><i class="fas fa-sliders-h"></i></div>
+                    </div>
+                    <!-- PASO 4 -->
+                    <div class="paso-item">
+                        <div class="paso-numero">04</div>
+                        <div class="paso-contenido"><h4 class="paso-texto">Montaje, ejecución y logística</h4></div>
+                        <div class="paso-icono"><i class="fas fa-truck-loading"></i></div>
+                    </div>
+                    <!-- PASO 5 -->
+                    <div class="paso-item">
+                        <div class="paso-numero">05</div>
+                        <div class="paso-contenido"><h4 class="paso-texto">Cierre y retroalimentación</h4></div>
+                        <div class="paso-icono"><i class="fas fa-handshake"></i></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MISIÓN, VISIÓN, VALORES (En bloque simultáneo) -->
+        <section class="mvv-seccion mt-5 pt-5 mb-5 pb-5" id="mvv-section">
+            <div class="container">
+                <div class="row g-5">
+                    <div class="col-md-4 mvv-card">
+                        <h3 class="mvv-titulo text-uppercase">Misión</h3>
+                        <p>Creatividad, adaptabilidad, empatía con el cliente, compromiso con la calidad e innovación.</p>
+                    </div>
+                    <div class="col-md-4 mvv-card">
+                        <h3 class="mvv-titulo text-uppercase">Visión</h3>
+                        <p>Creamos experiencias inmersivas y personalizadas que transforman ideas en emociones vivas mediante decoración escenográfica.</p>
+                    </div>
+                    <div class="col-md-4 mvv-card">
+                        <h3 class="mvv-titulo text-uppercase">Valores</h3>
+                        <p>Integridad, pasión por el detalle, excelencia en la ejecución y un enfoque implacable en superar expectativas.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- BOTÓN FLOTANTE WHATSAPP (Cambiamos estatico-pagina por visible-inicio) -->
+    <a href="https://wa.me/+525574628905" id="btn-contacto-flotante" class="whatsapp-btn visible-inicio btn-vibrante" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24" width="32" height="32"><path fill="currentColor" d="M12.01 21.49L12 21.5c-1.72 0-3.41-.45-4.9-1.32l-.35-.2l-3.65.96.98-3.56-.23-.36C2.92 15.5 2.45 13.79 2.45 12c0-5.27 4.28-9.55 9.55-9.55 2.55 0 4.95 1 6.75 2.8 1.8 1.8 2.8 4.2 2.8 6.75 0 5.27-4.28 9.55-9.54 9.55zm7.42-16.33C17.47 3.2 14.85 2 12 2 6.48 2 2 6.48 2 12c0 1.76.46 3.48 1.33 4.99L1.5 22.5l5.66-1.48c1.46.8 3.1 1.22 4.83 1.22h.01c5.52 0 10-4.48 10-10 0-2.67-1.04-5.18-2.92-7.06zM16.71 14.3c-.26-.13-1.53-.76-1.77-.85-.23-.09-.4-.13-.57.13-.17.26-.66.85-.81 1.02-.15.17-.3.19-.56.06-.26-.13-1.1-.41-2.1-1.3-.78-.7-1.31-1.56-1.46-1.82-.15-.26-.02-.4.11-.53.12-.11.26-.3.39-.46.13-.17.17-.28.26-.46.09-.17.04-.33-.02-.46-.06-.13-.57-1.37-.78-1.87-.2-.5-.41-.43-.57-.44l-.48-.01c-.17 0-.44.06-.67.3-.23.25-.89.87-.89 2.13 0 1.27.92 2.49 1.05 2.66.13.17 1.81 2.77 4.39 3.88.61.26 1.09.42 1.47.54.62.2 1.18.17 1.62.1.5-.07 1.53-.63 1.74-1.24.21-.61.21-1.13.15-1.24-.06-.1-.22-.16-.48-.29z"/></svg>
+    </a>
+
+    <!-- FOOTER (Estructura de 3 columnas equilibrada) -->
+    <footer id="footer-sitio" class="footer-general visible-inicio">
+        <div class="footer-container">
+            
+            <!-- 1. IZQUIERDA: Enlaces Legales -->
+            <div class="footer-seccion footer-legales">
+                <a href="#">Aviso de Privacidad</a>
+                <a href="#">Términos y Condiciones</a>
+            </div>
+            
+            <!-- 2. CENTRO: Derechos Reservados -->
+            <div class="footer-seccion footer-derechos" style="justify-content: center;">
+                <p class="mb-0">&copy; 2026 SPIRA. Todos los derechos reservados.</p>
+            </div>
+            
+            <!-- 3. DERECHA: Redes Sociales -->
+            <div class="footer-seccion footer-redes" style="justify-content: flex-end;">
+                <a href="https://www.facebook.com/people/SPIRA-Events/61579809506764/?locale=ja_JP#" target="_blank" rel="noopener noreferrer" class="btn-red-social" aria-label="Facebook">
+                    <svg viewBox="0 0 24 24"><path fill="currentColor" d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z"/></svg>
+                </a>
+                <a href="https://www.instagram.com/spiraevents/" target="_blank" rel="noopener noreferrer" class="btn-red-social" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24"><path fill="currentColor" d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8A3.6 3.6 0 0 0 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6A3.6 3.6 0 0 0 16.4 4H7.6m4.4 3a5 5 0 0 1 5 5a5 5 0 0 1-5 5a5 5 0 0 1-5-5a5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3z"/></svg>
+                </a>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- Librerías -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <!-- Script exclusivo de esta página -->
+    <script src="./assets/js/script_nosotros.js"></script>
+</body>
+</html>

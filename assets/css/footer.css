@@ -1,0 +1,179 @@
+/* ==========================================================================
+   ESTRUCTURA BASE DEL FOOTER (MARCO INFERIOR FIJO)
+   ========================================================================== */
+   .footer-general {
+    position: fixed !important; 
+    bottom: 0 !important;       
+    left: 0 !important;
+    width: 100% !important;
+    background: linear-gradient(to top, #1A4050 0%, #000000 100%) !important; 
+    color: var(--color-texto-claro) !important;    
+    z-index: 2000 !important;   
+    
+    /* 🟢 BLINDAJE CONTRA BOOTSTRAP: */
+    display: flex !important; 
+    visibility: visible !important;
+    opacity: 1 !important;
+    
+    height: auto !important;
+    padding: 15px 0 !important; 
+    border: none !important; 
+    box-shadow: 0 -10px 25px rgba(0,0,0,0.8) !important; 
+}
+
+
+/* 🟢 CRÍTICO: Evita que el footer tape el final del contenido de la página */
+body {
+    padding-bottom: 90px !important; 
+}
+
+/* Contenedor Flexbox en 3 columnas equidistantes */
+.footer-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Base de alineación para cada una de las 3 secciones */
+.footer-seccion {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+/* 1️⃣ Izquierda: Ajuste del logo miniatura */
+.footer-logo-min {
+    justify-content: flex-start;
+}
+.footer-logo-min img {
+    height: 85px; /* Tamaño discreto y elegante */
+    width: auto;
+    object-fit: contain;
+}
+
+/* 2️⃣ Centro: Texto de derechos reservados */
+.footer-derechos {
+    justify-content: center;
+    font-family: 'Questrial', sans-serif;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    text-align: center;
+}
+
+/* 3️⃣ Derecha: Botones de Redes Sociales */
+.footer-redes {
+    justify-content: flex-end;
+    gap: 15px;
+}
+
+
+.btn-red-social {
+    color: var(--color-texto-claro);
+    width: 36px;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(63, 178, 191, 0.2);
+    transition: all 0.3s ease;
+}
+
+.btn-red-social svg {
+    width: 18px;
+    height: 18px;
+}
+
+.btn-red-social:hover {
+    color: var(--color-acento-brillante);
+    border-color: var(--color-acento-brillante);
+    background-color: rgba(63, 178, 191, 0.1);
+    transform: scale(1.08);
+}
+
+/* Ocultado total para la panorámica */
+.footer-general.oculto-360 { display: none !important; }
+
+/* ==========================================================================
+   ⚖️ ENLACES LEGALES (Aviso de Privacidad y Términos)
+   ========================================================================== */
+   .footer-legales {
+    justify-content: flex-start;
+    gap: 20px;
+}
+
+.footer-legales a {
+    color: rgba(242, 242, 240, 0.7);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-family: 'Questrial', sans-serif;
+    transition: color 0.3s ease;
+}
+
+.footer-legales a:hover {
+    color: var(--color-acento-brillante);
+}
+
+/* ==========================================================================
+   📱 ADAPTACIÓN RESPONSIVA EN MÓVILES (FOOTER COMPACTO)
+   ========================================================================== */
+   
+/* BLINDAJE ABSOLUTO DEL FOOTER EN MÓVIL */
+@media (max-width: 768px) {
+    .footer-general {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        position: fixed !important;
+        bottom: 0 !important;
+        z-index: 2000 !important;
+    }
+}
+   
+
+@media (max-width: 768px) {
+    .footer-general.visible-inicio {
+        height: auto;
+        padding: 12px 0; /* Padding más estrecho */
+    }
+    
+    .footer-container {
+        flex-direction: column;
+        gap: 8px; /* Menos espacio entre filas */
+        padding: 0 15px;
+    }
+
+    .footer-logo-min {
+        display: none !important;
+    }
+    
+    .footer-seccion {
+        justify-content: center !important;
+        text-align: center;
+    }
+
+    /* Ajuste clave: Enlaces lado a lado en lugar de apilados */
+    .footer-legales {
+        flex-direction: row; 
+        gap: 15px;
+        margin-bottom: 2px;
+    }
+
+    .footer-legales a {
+        font-size: 0.75rem; /* Texto ligeramente más pequeño */
+    }
+
+    .footer-derechos p {
+        font-size: 0.7rem;
+        margin-bottom: 5px;
+    }
+
+    .footer-redes {
+        gap: 10px;
+    }
+}

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPIRA - Home</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Questrial&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/footer.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+</head>
+<body>
+
+<!-- BARRA DE MENÚ SUPERIOR -->
+<nav class="navbar">
+    <div class="nav-container">
+        <!-- (Tu logo de inicio o estático va aquí) -->
+        <div id="logo-container" class="logo-wrapper large-hero">
+            <img src="./assets/img/Logo-SPIRA_letras-verdes.png" alt="Logo SPIRA" id="main-logo">
+        </div>
+        
+        <!-- Menú de enlaces de navegación (Oculto al inicio) -->
+        <div id="nav-menu" class="nav-menu invisible-inicio">
+            <ul class="nav-links">
+                <li><a href="#inicio" class="active">Inicio</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </div>
+
+        <!-- Botón Hamburguesa (Oculto al inicio) -->
+        <button id="hamburger-btn" class="hamburger-menu invisible-inicio" aria-label="Abrir menú">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+</nav>
+
+    <!-- CORTINA OSCURA INICIAL (HERO SECTION) -->
+    <header id="inicio" class="hero-section">
+        <div class="hero-content">
+        
+        </div>
+    </header>
+
+    <!-- CONTENEDOR PRINCIPAL PARA EL LANDING -->
+    <main class="content-spacer">
+    
+        <!-- 1. SECCIÓN: BANNER PRINCIPAL -->
+        <section class="banner-section spira-banner">
+            <video class="spira-banner-video" autoplay muted loop playsinline preload="metadata" poster="assets/img/banner_2.jpeg" aria-hidden="true">
+                <source src="assets/video/banner.mp4" type="video/mp4">
+                Tu navegador no soporta videos.
+            </video>
+            <div class="spira-banner-overlay"></div>
+            <div class="spira-banner-band">
+                <h1 class="text-white fw-light" id="slogan-text">Inspirando emociones</h1>
+            </div>
+        </section>
+    
+        <!-- 2. SECCIÓN: CARRUSEL SWIPER -->
+        <section class="seccion-servicios text-center overflow-hidden" style="width: 100%;">
+            <h2 class="titulo-seccion">Nuestros <span class="texto-oliva">Servicios</span></h2>
+            <div class="swiper spiraSwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <!-- Se eliminó el target="_blank" para recargar en la misma pestaña -->
+                        <a href="#" class="carousel-link">
+                            <h6 class="slide-title">Team Buildings</h6>
+                            <img src="assets/img/team-building.jpg" alt="Team Buildings">
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href=# class="carousel-link">
+                            <h6 class="slide-title">Retiros empresariales</h6>
+                            <img src="assets/img/retiros.jpg" alt="Retiros empresariales">
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href=# class="carousel-link">
+                            <h6 class="slide-title">Town Halls y conferencias</h6>
+                            <img src="assets/img/town-halls.jpg" alt="Town Halls y conferencias">
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href=# class="carousel-link">
+                            <h6 class="slide-title">Congresos y expos</h6>
+                            <img src="assets/img/congresos.jpg" alt="Congresos y expos">
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href=# class="carousel-link">
+                            <h6 class="slide-title">Fiestas de fin de año y temáticas</h6>
+                            <img src="assets/img/fiesta-fin-de-ano.jpg" alt="Fiestas de fin de año y temáticas">
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href=# class="carousel-link">
+                            <h6 class="slide-title">Activaciones y lanzamientos</h6>
+                            <img src="assets/img/activaciones.webp" alt="Activaciones y lanzamientos">
+                        </a>
+                    </div>
+                </div>
+                <div class="swiper-button-prev custom-swiper-btn"></div>
+                <div class="swiper-button-next custom-swiper-btn"></div>
+                <div class="swiper-pagination"></div>
+            </div>
+            <!-- LLAMADO A LA ACCIÓN DEL CARRUSEL -->
+            <p class="mt-5 pt-4 fw-light texto-llamado-accion">
+                ¿Listo para lo  <span class="vibrar-texto mx-1"> extraordinario </span>  ?
+            </p>
+            <br>
+            <!-- (Sección comentada para el próximo sprint de vistas 360) -->
+            <!-- <p class="texto-llamado-accion mt-5">
+                <span class="animacion-salto mx-1"> Haz clic </span> sobre la imagen para entrar en modo interactivo.
+            </p>  -->
+            
+        </section>
+    
+        <!-- 3. SECCIÓN: PROPUESTA DE VALOR (ESFERAS NEBULOSA CSS) -->
+        <section class="proposal-section-full" id="propuesta-section">
+            <div class="container proposal-container">
+                <h2 class="titulo-seccion mb-5 text-center text-uppercase">Nuestra <span class="texto-oliva">propuesta de valor</span></h2>
+                
+                <div class="value-list-container">
+                    
+                    <!-- ÍTEM 1 -->
+                    <div class="value-list-item">
+                        <div class="sphere-wrapper">
+                            <div class="css-nebula-sphere">
+                                <div class="nebula-line-1"></div>
+                                <div class="nebula-line-2"></div>
+                                <div class="nebula-line-3"></div>
+                                <div class="nebula-line-4"></div>
+                                <div class="nebula-line-5"></div>
+                                <div class="nebula-line-6"></div>
+                                <div class="nebula-line-7"></div>
+                                <div class="nebula-core"></div>
+                            </div>
+                        </div>
+                        <div class="value-text">
+                            <h4 class="subtitulo-seccion text-uppercase">PERSONALIZACIÓN TOTAL</h4>
+                            <p>Cada experiencia se adapta a la historia, marca o persona que la inspira.</p>
+                        </div>
+                    </div>
+    
+                    <!-- ÍTEM 2 -->
+                    <div class="value-list-item">
+                        <div class="sphere-wrapper">
+                            <div class="css-nebula-sphere">
+                                <div class="nebula-line-1"></div>
+                                <div class="nebula-line-2"></div>
+                                <div class="nebula-line-3"></div>
+                                <div class="nebula-line-4"></div>
+                                <div class="nebula-line-5"></div>
+                                <div class="nebula-line-6"></div>
+                                <div class="nebula-line-7"></div>
+                                <div class="nebula-core"></div>
+                            </div>
+                        </div>
+                        <div class="value-text">
+                            <h4 class="subtitulo-seccion text-uppercase">EXPERIENCIA INMERSIVA + TECNOLOGÍA</h4>
+                            <p>Diseñamos con todos los sentidos e incluimos la innovación al servicio del impacto.</p>
+                        </div>
+                    </div>
+    
+                    <!-- ÍTEM 3 -->
+                    <div class="value-list-item">
+                        <div class="sphere-wrapper">
+                            <div class="css-nebula-sphere">
+                                <div class="nebula-line-1"></div>
+                                <div class="nebula-line-2"></div>
+                                <div class="nebula-line-3"></div>
+                                <div class="nebula-line-4"></div>
+                                <div class="nebula-line-5"></div>
+                                <div class="nebula-line-6"></div>
+                                <div class="nebula-line-7"></div>
+                                <div class="nebula-core"></div>
+                            </div>
+                        </div>
+                        <div class="value-text">
+                            <h4 class="subtitulo-seccion text-uppercase">ESTRATEGIA + EMOCIÓN</h4>
+                            <p>Unimos objetivos con experiencias inolvidables.</p>
+                        </div>
+                    </div>
+    
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- CUADRO DE DIÁLOGO DE WHATSAPP -->
+    <div class="whatsapp-widget" id="whatsapp-widget">
+        <div class="wa-header">
+            <div class="wa-header-left">
+                <div class="wa-icon"></div>
+                <span>Cotiza tu evento</span>
+            </div>
+            <!-- Usamos el símbolo HTML nativo para la X, imposible que no se vea -->
+            <button class="wa-close" id="close-wa-widget">&times;</button>
+        </div>
+        <div class="wa-body">
+            <div class="wa-message">
+                <strong>Gracias por confiar en Spira Events</strong><br>
+                ¿Qué evento estás por celebrar?
+            </div>
+            <a href="https://wa.me/+525574628905" target="_blank" class="wa-btn">
+                <i class="fa-brands fa-whatsapp"></i> Escríbenos por WhatsApp
+            </a>
+        </div>
+    </div>
+
+    <!-- BOTÓN FLOTANTE DE WHATSAPP -->
+    <a href="https://wa.me/+525574628905" id="btn-contacto-flotante" class="whatsapp-btn visible-inicio btn-vibrante" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24" width="32" height="32">
+            <path fill="currentColor" d="M12.01 21.49L12 21.5c-1.72 0-3.41-.45-4.9-1.32l-.35-.2l-3.65.96.98-3.56-.23-.36C2.92 15.5 2.45 13.79 2.45 12c0-5.27 4.28-9.55 9.55-9.55 2.55 0 4.95 1 6.75 2.8 1.8 1.8 2.8 4.2 2.8 6.75 0 5.27-4.28 9.55-9.54 9.55zm7.42-16.33C17.47 3.2 14.85 2 12 2 6.48 2 2 6.48 2 12c0 1.76.46 3.48 1.33 4.99L1.5 22.5l5.66-1.48c1.46.8 3.1 1.22 4.83 1.22h.01c5.52 0 10-4.48 10-10 0-2.67-1.04-5.18-2.92-7.06zM16.71 14.3c-.26-.13-1.53-.76-1.77-.85-.23-.09-.4-.13-.57.13-.17.26-.66.85-.81 1.02-.15.17-.3.19-.56.06-.26-.13-1.1-.41-2.1-1.3-.78-.7-1.31-1.56-1.46-1.82-.15-.26-.02-.4.11-.53.12-.11.26-.3.39-.46.13-.17.17-.28.26-.46.09-.17.04-.33-.02-.46-.06-.13-.57-1.37-.78-1.87-.2-.5-.41-.43-.57-.44l-.48-.01c-.17 0-.44.06-.67.3-.23.25-.89.87-.89 2.13 0 1.27.92 2.49 1.05 2.66.13.17 1.81 2.77 4.39 3.88.61.26 1.09.42 1.47.54.62.2 1.18.17 1.62.1.5-.07 1.53-.63 1.74-1.24.21-.61.21-1.13.15-1.24-.06-.1-.22-.16-.48-.29z"/>
+        </svg>
+    </a>
+
+<!-- FOOTER (Estructura de 3 columnas equilibrada) -->
+<footer id="footer-sitio" class="footer-general invisible-inicio">
+    <div class="footer-container">
+        
+        <!-- 1. IZQUIERDA: Enlaces Legales -->
+        <div class="footer-seccion footer-legales">
+            <a href="#">Aviso de Privacidad</a>
+            <a href="#">Términos y Condiciones</a>
+        </div>
+        
+        <!-- 2. CENTRO: Derechos Reservados -->
+        <div class="footer-seccion footer-derechos" style="justify-content: center;">
+            <p class="mb-0">&copy; 2026 SPIRA. Todos los derechos reservados.</p>
+        </div>
+        
+        <!-- 3. DERECHA: Redes Sociales -->
+        <div class="footer-seccion footer-redes" style="justify-content: flex-end;">
+            <a href="https://www.facebook.com/people/SPIRA-Events/61579809506764/?locale=ja_JP#" target="_blank" rel="noopener noreferrer" class="btn-red-social" aria-label="Facebook">
+                <svg viewBox="0 0 24 24"><path fill="currentColor" d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/spiraevents/" target="_blank" rel="noopener noreferrer" class="btn-red-social" aria-label="Instagram">
+                <svg viewBox="0 0 24 24"><path fill="currentColor" d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8A3.6 3.6 0 0 0 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6A3.6 3.6 0 0 0 16.4 4H7.6m4.4 3a5 5 0 0 1 5 5a5 5 0 0 1-5 5a5 5 0 0 1-5-5a5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3z"/></svg>
+            </a>
+        </div>
+
+    </div>
+</footer>
+
+    <script src="./assets/js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,175 @@
+
+   /* ==========================================================================
+      📞 SECCIÓN DE COMANDOS DE CONTACTO (NUEVA ESTRUCTURA GRID)
+      ========================================================================== */
+   .tech-frame {
+       position: relative;
+       width: 100%;
+       max-width: 1000px;
+       margin: 0 auto;
+       background-image: url('../img/marco-azul-escritorio.png');
+       background-size: 100% 100%;
+       background-repeat: no-repeat;
+       padding: 100px 80px;
+       min-height: 450px;
+   }
+   
+   .tech-frame h1 {
+       font-size: 2.5rem;
+       letter-spacing: 2px;
+   }
+   
+   .tech-label {
+       color: var(--color-acento-brillante);
+       font-size: 0.85rem;
+       letter-spacing: 2px;
+   }
+   
+   .tech-icon {
+       animation: pulseRadar 1.5s infinite;
+   }
+   /* ==========================================================================
+   ✨ EFECTOS DE LUCES E ICONOS (PANTALLA DE COMANDOS)
+   ========================================================================== */
+
+/* 1. Haz de luz (Shimmer) cada 5 segundos */
+.shimmer-text {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    color: rgba(255, 255, 255, 0.6); /* Color base ligeramente apagado */
+}
+
+.shimmer-text::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    /* Crea una línea de luz brillante con degradado suave a los lados */
+    background: linear-gradient(90deg, transparent, rgba(63, 178, 191, 0.9), transparent);
+    animation: sweepLight 5s infinite;
+}
+
+@keyframes sweepLight {
+    0% { left: -100%; }
+    15% { left: 200%; } /* Pasa rápidamente en el primer segundo */
+    100% { left: 200%; } /* Se queda pausado los siguientes 4 segundos */
+}
+
+/* 2. Animación del ícono de Teléfono (Efecto de timbre) */
+.icon-move-ring {
+    display: inline-block;
+    animation: ringPhone 2.5s infinite;
+}
+
+@keyframes ringPhone {
+    0%, 20%, 100% { transform: rotate(0deg) scale(1); }
+    5%, 15% { transform: rotate(15deg) scale(1.1); }
+    10% { transform: rotate(-15deg) scale(1.1); }
+}
+
+/* 3. Animación del ícono de Correo (Efecto flotante) */
+.icon-move-float {
+    display: inline-block;
+    animation: floatEmail 3s infinite ease-in-out;
+}
+
+@keyframes floatEmail {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-6px); }
+}
+   
+   @keyframes pulseRadar {
+       0% { transform: scale(1); opacity: 1; }
+       50% { transform: scale(1.5); opacity: 0.5; }
+       100% { transform: scale(1); opacity: 1; }
+   }
+   
+   @media (max-width: 768px) {
+       .tech-frame {
+           background-image: url('../img/marco-azul-movil.png');
+           padding: 60px 40px;
+       }
+       .tech-frame h1 { font-size: 1.8rem; }
+       .tech-frame .col-md-6 { border-left: none !important; border-top: 1px solid rgba(63, 178, 191, 0.3); padding-top: 20px; }
+   }
+   
+   /* ==========================================================================
+      🎮 FORMULARIO INTERACTIVO (WIZARD)
+      ========================================================================== */
+   .interactive-form-section { min-height: 80vh; overflow: hidden; }
+   .grid-bg {
+       position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+       background-image: url('../img/fondo-malla-3d.png');
+       background-size: cover; background-position: center top; opacity: 0.3; z-index: 1;
+   }
+   
+   .form-container { max-width: 600px; position: relative; z-index: 3; }
+   .form-glass-card {
+       background: rgba(9, 14, 18, 0.85); /* Negro obsidiana semitransparente */
+       backdrop-filter: blur(12px);
+       border: 1px solid rgba(63, 178, 191, 0.25);
+       border-radius: 15px;
+       padding: 40px;
+       box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+   }
+   
+   .tech-input {
+       width: 100%;
+       background-color: rgba(255, 255, 255, 0.03);
+       border: 1px solid rgba(255, 255, 255, 0.15);
+       color: #fff;
+       padding: 12px 15px;
+       border-radius: 8px;
+       font-size: 0.95rem;
+       transition: all 0.3s;
+       font-family: 'Questrial', sans-serif;
+   }
+   
+   .tech-input:focus {
+       outline: none;
+       border-color: var(--color-acento-brillante);
+       background-color: rgba(63, 178, 191, 0.05);
+       box-shadow: 0 0 10px rgba(63, 178, 191, 0.2);
+   }
+   
+   .tech-btn {
+       background-color: rgba(63, 178, 191, 0.1);
+       color: var(--color-acento-brillante);
+       border: 1px solid var(--color-acento-brillante);
+       padding: 12px 30px;
+       font-family: 'Montserrat', sans-serif;
+       font-size: 1.1rem;
+       cursor: pointer;
+       transition: all 0.3s ease;
+       border-radius: 25px;
+   }
+   .tech-btn:hover:not(:disabled) {
+       background-color: var(--color-acento-brillante);
+       color: #000;
+       box-shadow: 0 0 20px rgba(63, 178, 191, 0.6);
+   }
+   
+   .game-option-label { display: block; width: 100%; text-align: center; cursor: pointer; margin-bottom: 10px; }
+   .game-option-text { display: inline-block; color: rgba(255, 255, 255, 0.5); font-family: 'Montserrat', sans-serif; font-size: 1.1rem; transition: all 0.3s ease; padding: 10px 20px; }
+   .game-option-label:hover .game-option-text { color: #ffffff; transform: scale(1.05); }
+   .game-option-label input:checked + .game-option-text { color: var(--color-verde-oliva); text-shadow: 0 0 15px rgba(192, 217, 156, 0.6); font-weight: bold; transform: scale(1.1); }
+   .input-error { border-color: #ff3333 !important; box-shadow: 0 0 10px rgba(255, 51, 51, 0.5) !important; }
+   .text-cyan { color: var(--color-acento-brillante); }
+
+   .logo-estatico {
+    width: 160px !important;
+    height: 60px !important;
+    display: flex !important;
+    align-items: center !important;
+    z-index: 101;
+    cursor: pointer;
+}
+.logo-estatico img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    object-position: left center !important;
+}
